@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<center><head>
+  <meta http-equiv="refresh" content="20;url=/">
+  <form action="/" method="get" >
+    <button type="submit"> Home</button>
+  </form>
+
+  <form action="/predictions" method="get" >
+    <button type="submit"> Predictions</button>
+  </form>
+<style>
+
+<!-- table template from https://www.w3schools.com/html/tryit.asp?filename=tryhtml_table_intro-->
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<center><h1><b>HOME</b></h1></center>
+<center><h2>Current Tanks</h2></center>
+
+<center><table>
+  <tr>
+    <th>Equip Name</th>
+    <th>Volume</th>
+    <th>Fermenter</th>
+    <th>Conditioner</th>
+    <th>In use</th>
+    <th>Time Started</th>
+    <th>End Time</th>
+  </tr>
+  <tr>
+    <td>Albert</td>
+    <td>1000</td>
+    <td>✓</td>
+    <td>✓</td>
+    <td>{{A}}</td>
+    <td>{{Atime}}</td>
+    <td>{{Aendtime}}</td>
+  </tr>
+  <tr>
+    <td>Brigadier</td>
+    <td>800</td>
+    <td>✓</td>
+    <td>✓</td>
+    <td>{{B}}</td>
+    <td>{{Btime}}</td>
+    <td>{{Bendtime}}</td>
+  </tr>
+  <tr>
+    <td>Camilla</td>
+    <td>1000</td>
+    <td>✓</td>
+    <td>✓</td>
+    <td>{{C}}</td>
+    <td>{{Ctime}}</td>
+    <td>{{Cendtime}}</td>
+  </tr>
+  <tr>
+    <td>Dylon</td>
+    <td>800</td>
+    <td>✓</td>
+    <td>✓</td>
+    <td>{{D}}</td>
+    <td>{{Dtime}}</td>
+    <td>{{Dendtime}}</td>
+  </tr>
+  <tr>
+    <td>Emily</td>
+    <td>1000</td>
+    <td>✓</td>
+    <td>✓</td>
+    <td>{{E}}</td>
+    <td>{{Etime}}</td>
+    <td>{{Eendtime}}</td>
+  </tr>
+  <tr>
+    <td>Florence</td>
+    <td>800</td>
+    <td>✓</td>
+    <td>✓</td>
+    <td>{{F}}</td>
+    <td>{{Ftime}}</td>
+    <td>{{Fendtime}}</td>
+  </tr>
+  <tr>
+    <td>Gertrude</td>
+    <td>680</td>
+    <td>x</td>
+    <td>✓</td>
+    <td>{{G}}</td>
+    <td>{{Gtime}}</td>
+    <td>{{Gendtime}}</td>
+  </tr>
+  <tr>
+    <td>Harry</td>
+    <td>680</td>
+    <td>x</td>
+    <td>✓</td>
+    <td>{{H}}</td>
+    <td>{{Htime}}</td>
+    <td>{{Hendtime}}</td>
+  </tr>
+  <tr>
+    <td>R2D2</td>
+    <td>800</td>
+    <td>✓</td>
+    <td>x</td>
+    <td>{{R}}</td>
+    <td>{{Rtime}}</td>
+    <td>{{Rendtime}}</td>
+  </tr>
+</table></center>
+<br><br>
+
+<hr style="border: 2px solid black;" />
+
+<br><br>
+<center><h2>Start Process- Fermentation or Conditioning</h2></center>
+<form action="/" method="get">
+  Select the equipment:
+  <select name="equip">
+    <option value="0">Albert</option>
+    <option value="1">Brigadier</option>
+    <option value="2">Camilla</option>
+    <option value="3">Dylon</option>
+    <option value="4">Emily</option>
+    <option value="5">Florence</option>
+    <option value="6">Gertrude</option>
+    <option value="7">Harry</option>
+    <option value="8">R2D2</option>
+  </select>
+
+  Select the process:
+  <select name="proc">
+    <option value="F">Fermenter</option>
+    <option value="C">Conditioner</option>
+  </select>
+
+  Which beer type:
+  <select name="beer">
+    <option value="Pilsner">Pilsner</option>
+    <option value="Dunkel">Dunkel</option>
+    <option value="Red Helles">Red Helles</option>
+  </select>
+
+  Of what volume?
+  <input type="number" name="volume" min="1" max="1000" required="required">
+
+
+  <input type="submit" value="submit">
+</form><br><br>
+
+<br><br>
+<center><h2>Start Process- Hot Brew or bottling</h2></center>
+<form action="/" method="get">
+
+  Select the process:
+  <select name="proc2">
+    <option value="HB">Hot Brew</option>
+    <option value="B">Bottling and Labeling</option>
+  </select>
+
+  <select name="beer2">
+    <option value="Pilsner">Pilsner</option>
+    <option value="Dunkel">Dunkel</option>
+    <option value="Red Helles">Red Helles</option>
+  </select>
+
+  Of what volume?
+  <input type="number" name="volume2" min="1" max="1000" required="required">
+
+  <input type="submit" value="submit">
+</form><br><br>
+
+<hr style="border: 2px solid black;" />
+
+<br><br>
+<center><h2>Current Stages</h2></center>
+<h3>Stage 1 - Hot Brew</h3>
+<table>
+  <tr>
+    <th>Tank</th>
+    <th>Volume</th>
+    <th>Beer</th>
+    <th>Start Time</th>
+    <th>End Time</th>
+  </tr>
+    {% for items in stage1 %}
+      <tr>
+        <td>{{items[0]}}</td>
+        <td>{{items[1]}}</td>
+        <td>{{items[2]}}</td>
+        <td>{{items[3]}}</td>
+        <td>{{items[4]}}</td>
+      </tr>
+    {% endfor %}
+</table>
+<h3>Stage 2 - Fermentation</h3>
+<table>
+  <tr>
+    <th>Tank</th>
+    <th>Volume</th>
+    <th>Beer</th>
+    <th>Start Time</th>
+    <th>End Time</th>
+  </tr>
+    {% for items in stage2 %}
+      <tr>
+        <td>{{items[0]}}</td>
+        <td>{{items[1]}}</td>
+        <td>{{items[2]}}</td>
+        <td>{{items[3]}}</td>
+        <td>{{items[4]}}</td>
+      </tr>
+    {% endfor %}
+</table>
+
+<h3>Stage 3 - Conditioning</h3>
+<table>
+  <tr>
+    <th>Tank</th>
+    <th>Volume</th>
+    <th>Beer</th>
+    <th>Start Time</th>
+    <th>End Time</th>
+  </tr>
+    {% for items in stage3 %}
+      <tr>
+        <td>{{items[0]}}</td>
+        <td>{{items[1]}}</td>
+        <td>{{items[2]}}</td>
+        <td>{{items[3]}}</td>
+        <td>{{items[4]}}</td>
+      </tr>
+    {% endfor %}
+</table>
+
+<h3>Stage 4 - Bottling and Labelling</h3>
+<table>
+  <tr>
+    <th>Tank</th>
+    <th>Volume</th>
+    <th>Beer</th>
+    <th>Start Time</th>
+    <th>End Time</th>
+  </tr>
+    {% for items in stage4 %}
+      <tr>
+        <td>{{items[0]}}</td>
+        <td>{{items[1]}}</td>
+        <td>{{items[2]}}</td>
+        <td>{{items[3]}}</td>
+        <td>{{items[4]}}</td>
+      </tr>
+    {% endfor %}
+</table><br><br>
+
+<h2>Remove Process</h2>
+<form action="/" method="get">
+
+  Select the process:
+  <select name="proc_canc">
+    <option value="s1">Stage1</option>
+    <option value="s2">Stage2</option>
+    <option value="s3">Stage3</option>
+    <option value="s4">Stage4</option>
+  </select>
+
+  Which process in the table above?(e.g. 1st in table = 1)
+  <input type="number" name="numb" min="1" max="100" required="required">
+
+  <input type="submit" value="submit">
+</form><br><br>
+
+<br>
+<hr style="border: 2px solid black;" />
+<br>
+
+
+
+<h2>Current Stock</h2>
+<table>
+  <tr>
+    <th>Brew</th>
+    <th>Stock</th>
+  </tr>
+  <tr>
+    <td>Organic Pilsner</td>
+    <td>{{Pstock}}</td>
+  </tr>
+  <tr>
+    <td>Organic Red Helles</td>
+    <td>{{Hstock}}</td>
+  </tr>
+  <tr>
+    <td>Organic Dunkel</td>
+    <td>{{Dstock}}</td>
+  </tr>
+</table>
+<br>
+
+<h2>Add Stock</h2>
+<form action="/" method="get">
+  Which beer?
+  <select name="beer3">
+    <option value="P">Pilsner</option>
+    <option value="D">Dunkel</option>
+    <option value="H">Red Helles</option>
+  </select>
+
+  How many 500ml bottles to add:
+  <input type="number" name="quantity" min="1" max="2000" required="required">
+
+  <input type="submit" value="submit">
+</form>
+<br>
+
+<h2>Remove Stock</h2>
+<form action="/" method="get">
+  Which beer?
+  <select name="beer4">
+    <option value="P">Pilsner</option>
+    <option value="D">Dunkel</option>
+    <option value="H">Red Helles</option>
+  </select>
+
+  How many 500ml bottles to Remove:
+  <input type="number" name="quantity2" min="1" max="2000" required="required">
+
+  <input type="submit" value="submit">
+</form>
+<br><br>
+
+<br>
+<hr style="border: 2px solid black;" />
+<br>
+</body></center>
+</html>
